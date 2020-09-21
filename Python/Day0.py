@@ -6,7 +6,7 @@ alp_dict = {'a':1,'b':3,'c':3,'d':2,'e':1
 
             
 
-def word_score1(word):
+def word_score(word):
     word = word.replace(' ', '').lower()
     score = 0    
     score = sum([score + alp_dict[word] for word in word])

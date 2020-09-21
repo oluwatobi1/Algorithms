@@ -5,6 +5,7 @@ class Node(object):
 
 
 class Queue(object):
+    
     def __init__(self):
         self.que = []
         self.head = None
@@ -33,7 +34,7 @@ class Queue(object):
     def count(self):
         return len(self.que)
     
-    def view(self):
+    def veiw(self):
         return self.que
 
 
