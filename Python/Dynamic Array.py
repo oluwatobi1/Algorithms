@@ -10,6 +10,8 @@ class DynamicArray():
         return self.count
 
     def __getitems__(self, index):
+        if 0<index<=self.capacity:
+            return IndexError('Index out of bounds')
         return self.Arr[index]
 
     def append(self, item):
