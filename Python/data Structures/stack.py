@@ -1,5 +1,7 @@
 class Stack(object):
     """
+    This uses a LIFO structure Ordering principle.
+    Taking advantage of python lists
 
     Stack():  initializes an empty stack. Takes no parameters and returns an empty stack
     push(item): pushes a single item to the top of the stack. Takes the item and returns nothing

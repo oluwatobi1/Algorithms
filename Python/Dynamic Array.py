@@ -23,9 +23,9 @@ class DynamicArray():
     def _resize(self, arr):
         self.capacity *=2
         spare = self._make_array(self.capacity)
-        for i in range(len(arr):
+        for i in range(len(arr)):
             spare[i]=arr[i]
-        arr = spare)
+            arr = spare
     
     def _make_array(self, capacity):
         return (capacity* ctypes.py_object)()
