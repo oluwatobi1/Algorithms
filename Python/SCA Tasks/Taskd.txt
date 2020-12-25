@@ -1,0 +1,52 @@
+1. Here is your project.
+You are to create a simple chat bot that accepts input from the user and gives a  response.
+[1:00 PM, 12/12/2020] Tobi Akin: This is a template for what it's should look like when it's done.
+[1:08 PM, 12/12/2020] Tobi Akin: Key things to note.
+Your application should accept 
+a. At least 4 different string inputs from the user.
+- ....return them in a response.
+Hint: string concatenation
+b. At least 2 integers input from the user.
+- do a mathematical operation on the integer and return the answer as output.
+[1:11 PM, 12/12/2020] Tobi Akin: Deadline for both quiz 2 and project is Monday evening. 11:59 pm
+
+
+2. [2:21 PM, 12/19/2020] Tobi Akin: Weekend task
+
+a. Make a program in which the computer randomly chooses a number between 1 to 10, 1 to 100, or any range. Then give users a hint to guess the number. Every time the user guesses wrong, he gets another clue, and his score gets reduced. The clue can be multiples, divisible, greater or smaller, or a combination of all.
+
+b. Dice Rolling Simulator.
+You would be imitating a rolling dice.When the user rolls the dice, the program will generate a random number between 1 and 6 (as on a standard dice).
+The number will then be displayed to the user. It will also ask users if they would like to roll the dice again.
+
+c. Shuffle a sentence.
+In this program, you'll shuffle a sentence (user inputs)
+hints:using random module. And return a shuffled sentence.
+
+Eg…
+[2:23 PM, 12/19/2020] Tobi Akin: Note:This time you'd be submitting through GitHub.
+Here
+https://youtu.be/P0IuvNZ7GgE
+For you guys
+
+
+3. Tue: Project task
+Your function would be given two strings a and b and your task will be to return the characters that are not common in the two strings.
+For example:
+solve("xyab","xzca") = "ybzc" 
+--The first string has 'yb' which is not in the second string. 
+--The second string has 'zc' which is not in the first string. 
+Notice also that you return the characters from the first string concatenated with those from the second string.
+Feel free to ask questions
+Other test case
+solve("xyabb","xzca"), output=>"ybbzc"
+solve("abcd","xyz"), output=>"abcdxyz"
+solve("xxx","xzca"), output=> "zca"
+Submit before 9am tomorrow.
+Good luck.
+
+
+4. Today's task.
+Write a function that return the number (count) of vowels in the given string.
+We will consider a, e, i, o, u as vowels.
+The input string will only consist of lower case letters and/or spaces.
