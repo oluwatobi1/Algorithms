@@ -1,5 +1,4 @@
 from random import randint
-
 class PasswordManager:
 
     def __init__(self):
