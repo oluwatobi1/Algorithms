@@ -16,10 +16,25 @@ def number_of_occurence(array):
         else:
             dct[i]=1
     return dct
+# second attempt
+def number_of_occurence2(array):
+    if type(array)!=list:
+        return "Not a list"
+
+    if not len(array):
+        return 'Empty list'    
+    uniques = set(array)    
+    for i in uniques:
+        print(f"{i} occurs in {array.count(i)} times")
+        print(i, "occurs here ", array.count(i)," times")
+ 
+
+
 
 array = [0, 1, 2, 3, 3, 3]
 
-print(number_of_occurence([]))
-print(number_of_occurence(0))
-print(number_of_occurence(['random text']))
-print(number_of_occurence('y'))
+print(number_of_occurence2([]))
+print(number_of_occurence2(0))
+print(number_of_occurence2(['random text']))
+print(number_of_occurence2('y'))
+print(number_of_occurence2(array))
