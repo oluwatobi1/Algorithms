@@ -36,7 +36,6 @@ def word_split(phrase, lst, curr = None, out=None):
     word_split('ilovedogsJohn', ['i', 'am', 'a', 'dogs', 'lover', 'loves', 'John'])-->['i', 'love', 'dogs', 'John']
     word_split('themanran', ['clown', 'man', 'ran']) --> []
 
-
     """
 
     if not out:
