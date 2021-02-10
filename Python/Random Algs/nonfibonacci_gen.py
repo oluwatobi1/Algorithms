@@ -17,3 +17,7 @@ def notfibgen2(no_of_iter):
 a = notfibgen2(1000)
 for i in a:
     print(i)
+
+#Note: since 0 & 1 are fibonnacci numbers
+#  the output is supposed to be empty; 
+# T'was delebrately ignored (maybe don't next time)
