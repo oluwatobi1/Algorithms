@@ -20,25 +20,23 @@ def reverse(phrase):
 # print(reverse('123456789'))
 # print(reverse('hello'))
 
+
+
 def permute(s):
 
     out = []
     if len(s)==1:
-        print([s])
         return s
+    
+    for i, j in enumerate(s):
+        for perm in permute(s[:i]+s[i+1:]):
+            print(perm)
+            out+=[perm+'a']
 
-    else:
-        for i in range(len(s)):
-            for perm in permute(s[:i]+s[i+1:]):
-                out+=[s[i]+perm]
-        return out
-            
-
-
+    return out
 
 
-
-s = 'abc'
+s = 'abcd'
 
 print(permute(s))
 # print(permute('12389'))
