@@ -13,11 +13,47 @@ def notfibgen2(no_of_iter):
                 #if not divisible by the elementary fibs num excluding 1 (2,3,5,13)
                 count+=1
                 yield i
-        
-a = notfibgen2(1000)
-for i in a:
-    print(i)
+# testing  
+     
+# a = notfibgen2(1000)
+# for i in a:
+#     print(i)
 
 #Note: since 0 & 1 are fibonnacci numbers
 #  the output is supposed to be empty; 
 # T'was delebrately ignored (maybe don't next time)
+
+
+# buggy 
+# salvadors approach in javascript
+import math
+def isfib(n):
+    print(math.sqrt(5*n*n+4)%1, math.sqrt(5*n*n-4)%1)
+    return (math.sqrt(5*n*n+4)%1==0) or (math.sqrt(5*n*n-4)%1==0)
+
+def not_has_divisor_set(num, set):
+    for cont in set:
+        if cont<2:
+            continue
+        if type(num/cont)==int:
+            return False
+        
+    return True
+
+def not_div_by_fib():
+    num=1
+    ls = set()
+    while True:
+        if not_has_divisor_set(num, ls):
+            print(ls)
+            yield num
+        if isfib(num):
+            print(num)
+            ls.add(num)
+            num+=1
+
+b = not_div_by_fib()
+for i in b:
+    print(i)
+
+# print(isfib(3))
