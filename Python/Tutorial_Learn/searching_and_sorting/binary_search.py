@@ -11,15 +11,12 @@ def binary_search(arr, ele):
 
         elif arr[middle] < ele:
             start = middle
-            print(start, middle, end, " hesa")
             arr = arr[start:]
             middle = len(arr) // 2
-            print("right half ", arr, ele, middle)
         else:
             end = middle
             arr = arr[:end]
             middle = len(arr) // 2
-            print("left half ", arr, ele, middle)
 
     return  found
 
