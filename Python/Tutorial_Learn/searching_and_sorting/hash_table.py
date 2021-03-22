@@ -59,8 +59,9 @@ class HashTable:
 
 
 h = HashTable(6)
+h[1] = "one"
+h[3] = "three"
+h[2] = "two"
 
-h[1]= "one"
-
-print(h[1])
+print(h[1], h[2], h[3])
 
