@@ -21,4 +21,12 @@ def parity(d):
         d>>=1
     return result
 
-print(parity(8392))
+def parity1(x):
+    result=0
+    while x:
+        result ^=1
+        x&=x-1 
+        # x = x & x-1 #drops the lowest bit
+    return result
+
+print(parity1(397))
