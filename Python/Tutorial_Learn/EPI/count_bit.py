@@ -8,4 +8,11 @@ def count_bits(x):
         x>>=1
     return num_bit
 
-print(count_bits(21))
+def parity(d):
+    result = 0
+    while d:
+        result ^= d & 1
+        d>>=1
+    return result
+
+print(parity(21345))
