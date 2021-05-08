@@ -67,3 +67,25 @@ console.log("Switch End");
         
         
 }
+
+enum VehicleType {
+    car,
+    plane,
+    boat,
+}
+
+let veh:number = VehicleType.car
+
+switch (+veh){
+    case VehicleType.car:
+        console.log("This is a car");
+        break;
+    case VehicleType.boat:
+        console.log("This a boat");
+        break;
+    case VehicleType.boat:
+        console.log("This is a boat");
+        break;
+    default:
+        console.log("Not a Vehicle");        
+}
