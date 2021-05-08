@@ -39,3 +39,31 @@ if (operator == ">"){
     
 }
 
+//  Switch statements
+let val3= 12
+let val4 = 45
+console.log("Switch Start");
+
+let sign = '-'
+switch (sign){
+    case "+":
+        console.log(val3+val4);
+        break
+    case "-":
+        console.log(val3-val4);
+        break
+    case "*":
+        console.log(val3*val4);
+        break
+    case "/":
+        console.log(val3/val4);
+        break
+    default:
+        console.log("Invalid Operator");
+        
+        
+console.log("Switch End");
+
+        
+        
+}
