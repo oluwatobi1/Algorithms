@@ -116,3 +116,19 @@ do {
     
 }while (true)
 
+// for loops
+
+for (let i=0; i<5;i++){
+    console.log("this is "+i);
+    
+}
+
+let io = 0
+for (;;io++){
+    if (io <2) continue;
+    console.log("io "+ io);
+    if (io >4){
+        break
+    }
+    
+}
