@@ -132,3 +132,15 @@ for (;;io++){
     }
     
 }
+
+// labeling loops
+
+outerloop: for (let o =1; o<7;o++){
+    innerloop: for (let p = 2;p<6;p++){
+        console.log(o, p);
+        
+        if (o==4){
+            break outerloop
+        }
+    }
+}
