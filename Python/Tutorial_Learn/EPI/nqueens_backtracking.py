@@ -1,4 +1,12 @@
-def generate_permutations(perm, n):
+def can_extend_to_solution(perm):
+    j = len(perm)-1
+    for k in range(j):
+        if j-k == abs(perm[k]-perm[j]):
+            return False
+    return True
+
+
+def extend(perm, n):
     if len(perm) == n:
         print(perm)
         return
@@ -6,7 +14,9 @@ def generate_permutations(perm, n):
     for k in range(n):
         if k not in perm:
             perm.append(k)
-            generate_permutations(perm, n)
+            if can_extend_to_solution(perm):
+                extend(perm, n)
             perm.pop()
 
-print(generate_permutations(perm=[], n=5))
+
+print(extend(perm=[], n=5))
