@@ -1,4 +1,14 @@
-function generatePermutations(perm:Number[], n: Number):void{
+function can_extend_to_solution(perm:number[]):boolean{
+    let k = perm.length - 1
+    for (let i=0; i<k; i++){
+        if ((k-i) == Math.abs(perm[k]-perm[i])){
+            return false
+        }
+    }return true
+
+}
+
+function extend(perm:number[], n: number):void{
     if (perm.length == n){
         console.log(perm);
         return        
@@ -7,10 +17,12 @@ function generatePermutations(perm:Number[], n: Number):void{
     for (let k=0; k<n;k++){
         if (perm.indexOf(k)<0) {
             perm.push(k)
-            generatePermutations(perm,n)
+            if (can_extend_to_solution(perm)){
+                extend(perm,n)
+            }
             perm.pop()
         }
     }
 }
 
-generatePermutations([], 3)
+extend([], 4)
