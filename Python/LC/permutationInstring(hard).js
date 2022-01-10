@@ -2,7 +2,7 @@ const find_permutation = function(str, pattern) {
     // TODO: Write your code here
     let windowStart = 0,
         windowEnd = 0;
-    console.log("string", str);
+    console.log("Starting ......", str);
     while (windowEnd < str.length) {
         rightChar = str[windowEnd]
         console.log("current char", rightChar);
@@ -26,10 +26,12 @@ const find_permutation = function(str, pattern) {
                     return true
                 }
             };
+            console.log("done Perm Check", "left", left, 'right', right);
             // shift both windowStart and windowEnd
-            windowStart = right;
-            windowEnd = right
-            console.log("WIndow end", windowEnd, 'str end', str.length);
+            windowStart = right - 1;
+            windowEnd = right - 1
+            windowEnd -= 1
+            console.log("window start", windowStart, "WIndow end", windowEnd, 'str end', str.slice(windowEnd, ));
         }
         windowEnd += 1
     }
@@ -40,3 +42,4 @@ console.log(find_permutation('oidbcaf', 'abc'));
 console.log(find_permutation('bcdxabcdy', 'bcdyabcdx'));
 console.log(find_permutation('aaacb', 'abc'));
 console.log(find_permutation('odicf', 'dc'));
+console.log(find_permutation('dcabcde', 'decb'));
