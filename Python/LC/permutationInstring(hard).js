@@ -2,10 +2,8 @@ const find_permutation = function(str, pattern) {
     // TODO: Write your code here
     let windowStart = 0,
         windowEnd = 0;
-    console.log("Starting ......", str);
     while (windowEnd < str.length) {
         rightChar = str[windowEnd]
-        console.log("current char", rightChar);
         if (rightChar === pattern[0]) {
             // console.log("found ", rightChar);
             // open window
@@ -13,10 +11,8 @@ const find_permutation = function(str, pattern) {
             let right = Math.min(str.length, windowEnd + pattern.length)
                 // check for permutation
             let permInString = str.substr(left, right)
-            console.log('permString', permInString, ':::::pattern', pattern, "left", left, 'right', right);
             let permCheck = pattern
             for (i = 0; i < permInString.length; i++) {
-                console.log("permcheck", permCheck);
                 if (permCheck.includes(permInString[i])) {
                     permCheck = permCheck.replace(permInString[i], '')
                 } else {
@@ -26,12 +22,10 @@ const find_permutation = function(str, pattern) {
                     return true
                 }
             };
-            console.log("done Perm Check", "left", left, 'right', right);
             // shift both windowStart and windowEnd
             windowStart = right - 1;
             windowEnd = right - 1
             windowEnd -= 1
-            console.log("window start", windowStart, "WIndow end", windowEnd, 'str end', str.slice(windowEnd, ));
         }
         windowEnd += 1
     }
