@@ -1,0 +1,1 @@
+// Given a string and a pattern, find all anagrams of the pattern in the given string.
