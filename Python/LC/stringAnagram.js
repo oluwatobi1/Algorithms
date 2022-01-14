@@ -47,3 +47,4 @@ const find_string_anagrams = function(str, pattern) {
 
 console.log("Output ", find_string_anagrams("ppqp", 'pq'));
 console.log("Output ", find_string_anagrams("abbcabc", 'abc'));
+console.log("Output ", find_string_anagrams("aaaaaaaaa", 'a'));
