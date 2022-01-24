@@ -13,10 +13,31 @@
 
 const remove_duplicates = function(arr) {
     // TODO: Write your code here
+    if (arr.length < 2) {
+        return arr.length
+    };
 
-    return -1;
+    let startPointer = 0,
+        nextPointer = 1
+    count = 1;
+    while (nextPointer < arr.length) {
+        // console.log("arr", arr.slice(0, nextPointer + 1));
+        if (arr[startPointer] === arr[nextPointer]) {
+            // console.log("point", arr[startPointer], arr[nextPointer]);
+            nextPointer += 1
+
+        } else {
+            // console.log("Not equal", arr[nextPointer], arr[startPointer]);
+            count += 1
+            startPointer = nextPointer
+            nextPointer += 1;
+        }
+        // console.log("pointer", startPointer, nextPointer);
+    }
+    return count;
 };
 
 
 console.log(remove_duplicates([2, 3, 3, 3, 6, 9, 9]));
-console.log(remove_duplicates([2, 2, 2, 11]));
+console.log(remove_duplicates([2, 2, 2, 2, 3]));
+console.log(remove_duplicates([6]));
