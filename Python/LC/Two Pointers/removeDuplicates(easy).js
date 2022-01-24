@@ -21,18 +21,14 @@ const remove_duplicates = function(arr) {
         nextPointer = 1
     count = 1;
     while (nextPointer < arr.length) {
-        // console.log("arr", arr.slice(0, nextPointer + 1));
         if (arr[startPointer] === arr[nextPointer]) {
-            // console.log("point", arr[startPointer], arr[nextPointer]);
             nextPointer += 1
 
         } else {
-            // console.log("Not equal", arr[nextPointer], arr[startPointer]);
             count += 1
             startPointer = nextPointer
             nextPointer += 1;
         }
-        // console.log("pointer", startPointer, nextPointer);
     }
     return count;
 };
