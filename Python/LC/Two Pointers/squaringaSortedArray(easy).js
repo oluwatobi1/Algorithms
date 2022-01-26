@@ -20,7 +20,6 @@ const make_squares = function(arr) {
     };
     let left = midPoint,
         right = midPoint;
-    console.log("left", left, "right", right);
     while (left >= 0 && right <= arr.length) {
         leftSqr = arr[left] ** 2
         rightSqr = arr[right] ** 2
