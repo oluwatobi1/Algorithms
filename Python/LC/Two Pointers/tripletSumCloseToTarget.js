@@ -4,9 +4,9 @@ const triplet_sum_close_to_target = function(arr, target_sum) {
     arr.sort((a, b) => a - b)
     for (let i = 0; i < arr.length; i++) {
         if (i > 0 && arr[i] == arr[i - 1]) continue
-        search_triplets(arr, arr[i], i + 1, target_sum, diff)
+        diff = search_triplets(arr, arr[i], i + 1, target_sum, diff)
     }
-    return diff;
+    return target_sum - diff;
 };
 
 const search_triplets = function(arr, curr, left, target_sum, diff) {
@@ -14,10 +14,8 @@ const search_triplets = function(arr, curr, left, target_sum, diff) {
     while (left < right) {
         let currSum = arr[left] + arr[right] + curr,
             gap = Math.abs(target_sum - currSum);
-        console.log("gap", gap, "currSum", currSum, 'targetSum', target_sum);
-        console.log("left", left, "right", right, 'curr', curr);
 
-        console.log('diff', diff, "gap", gap, 'min', Math.min(diff, gap));
+        // fix diff 
         diff = Math.min(diff, gap)
         if (diff > gap) {
             right -= 1
@@ -28,7 +26,9 @@ const search_triplets = function(arr, curr, left, target_sum, diff) {
             right -= 1;
         }
     }
+    return diff
 }
+
 
 
 console.log(triplet_sum_close_to_target([-2, 0, 1, 2], 2));
