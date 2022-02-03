@@ -12,6 +12,7 @@ const triplet_sum_close_to_target = function(arr, target_sum) {
 const search_triplets = function(arr, curr, left, target_sum, diff) {
     let right = arr.length - 1
     while (left < right) {
+        console.log("arr", arr[left], arr[right]);
         let currSum = arr[left] + arr[right] + curr,
             gap = Math.abs(target_sum - currSum);
 
