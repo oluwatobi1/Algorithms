@@ -8,7 +8,6 @@
 // Explanation: There are two triplets whose sum is less than the target: [-1, 0, 3], [-1, 0, 2]
 
 
-console.log("sint")
 const triplet_with_smaller_sum = function(arr, target) {
     count = 0;
     // TODO: Write your code here
@@ -22,7 +21,6 @@ const triplet_with_smaller_sum = function(arr, target) {
 
 const search_triple_pair = function(arr, left, currItem, count, target) {
     let right = arr.length - 1;
-    console.log("new", arr[currItem], left, right);
     while (left < right) {
         let currSum = arr[currItem] + arr[left] + arr[right]
         if (currSum < target) {
