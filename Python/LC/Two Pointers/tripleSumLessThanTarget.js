@@ -27,12 +27,12 @@ const search_triple_pair = function(arr, left, currItem, count, target) {
             count += right - left;
             left += 1;
         } else {
-            right -= 1
-        }
-    }
+            right -= 1;
+        };
+    };
     return count
 }
 
 
 console.log("Result", triplet_with_smaller_sum([-1, 2, 0, 3], 3));
-console.log("result", triplet_with_smaller_sum([-1, 4, 2, 1, 3], 5));
+console.log("Result", triplet_with_smaller_sum([-1, 4, 2, 1, 3], 5));
