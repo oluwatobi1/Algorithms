@@ -22,7 +22,7 @@ const find_subarrays = function(arr, target) {
             left += 1;
         }
         let tempList = []
-        for (let i = left; i < right + 1; i++) {
+        for (let i = right; i > left + 1; i--) {
             tempList.push(arr[i])
             result.push(tempList)
         }
