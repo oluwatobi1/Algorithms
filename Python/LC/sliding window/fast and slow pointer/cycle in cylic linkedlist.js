@@ -31,3 +31,15 @@
 // Input: [2, 1, -1, -2]
 // Output: false
 // Explanation: The array does not have any cycle.
+
+
+const circular_array_loop_exists = function(arr) {
+    // TODO: Write your code here
+    return false;
+};
+
+
+
+console.log(`${circular_array_loop_exists([1, 2, -1, 2, 2])}`)
+console.log(`${circular_array_loop_exists([2, 2, -1, 2])}`)
+console.log(`${circular_array_loop_exists([2, 1, -1, -2])}`)
