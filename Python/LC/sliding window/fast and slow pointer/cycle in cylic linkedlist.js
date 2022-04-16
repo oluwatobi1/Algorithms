@@ -13,3 +13,21 @@
 // Write a method to determine if the array has a cycle. The cycle should have more than one 
 // element and should follow one direction which means the cycle should not contain both forward 
 // and backward movements.
+
+// Example 1:
+
+// Input: [1, 2, -1, 2, 2]
+// Output: true
+// Explanation: The array has a cycle among indices: 0 -> 1 -> 3 -> 0
+
+// Example 2:
+
+// Input: [2, 2, -1, 2]
+// Output: true
+// Explanation: The array has a cycle among indices: 1 -> 3 -> 1
+
+// Example 3:
+
+// Input: [2, 1, -1, -2]
+// Output: false
+// Explanation: The array does not have any cycle.
