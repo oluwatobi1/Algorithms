@@ -55,3 +55,12 @@ for (i = 0; i < merged_intervals.length; i++) {
     result += merged_intervals[i].get_interval() + " ";
 }
 console.log(`Merged intervals: ${result}`)
+
+
+// Similar Problems
+// Problem 1: Given a set of intervals, find out if any two intervals overlap.
+
+// Example:
+// Intervals: [[1,4], [2,5], [7,9]]
+// Output: true
+// Explanation: Intervals [1,4] and [2,5] overlap
