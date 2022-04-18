@@ -21,12 +21,14 @@ const merge = function(intervals) {
         end = intervals[0].end;
     for (let i = 1; i < intervals.length; i++) {
         if (intervals[i].start < end) {
+            end = Math.max(end, intervals[i].end)
+        } else {
             merged.push(new Interval(start, end));
-            merged.push(new Interval(intervals[i].start, intervals[i].end));
+            start = intervals[i].start;
+            end = intervals[i].end;
         }
-        start = intervals[i].start;
-        end = intervals[i].end;
     }
+    merged.push(new Interval(start, end))
 
     return merged;
 };
