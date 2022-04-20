@@ -18,7 +18,6 @@
 // Appointments: [[4,5], [2,3], [3,6]]
 // Output: false
 // Explanation: Since [4,5] and [3,6] overlap, a person cannot attend both of these appointments.
-
 class Interval {
     constructor(start, end) {
         this.start = start;
@@ -59,4 +58,3 @@ console.log(`Can attend all appointments: ${can_attend_all_appointments([
     new Interval(2, 3),
     new Interval(3, 6),
   ])}`);
-);
