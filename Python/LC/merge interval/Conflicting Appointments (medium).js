@@ -19,7 +19,6 @@
 // Output: false
 // Explanation: Since [4,5] and [3,6] overlap, a person cannot attend both of these appointments.
 
-
 class Interval {
     constructor(start, end) {
         this.start = start;
@@ -33,16 +32,11 @@ class Interval {
 
 const can_attend_all_appointments = function(intervals) {
     // TODO: Write your code here
-    if (intervals.length < 2) return true;
     intervals.sort((a, b) => a.start - b.start);
-    let i = 0,
-        j = 1;
-    while (j < intervals.length) {
-        if (intervals[j].start <= intervals[i].end) {
+    for (let i = 1; i < intervals.length; i++) {
+        if (intervals[i].start < intervals[i - 1].end) {
             return false
-        };
-        ++i;
-        ++j;
+        }
     }
     return true;
 };
@@ -65,3 +59,4 @@ console.log(`Can attend all appointments: ${can_attend_all_appointments([
     new Interval(2, 3),
     new Interval(3, 6),
   ])}`);
+);
