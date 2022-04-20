@@ -27,7 +27,7 @@ class Interval {
     }
 
     print_interval() {
-        console.log(`[${this.start}, ${this.end}]`);
+        process.stdout.write(`[${this.start}, ${this.end}]`);
     }
 }
 
@@ -35,29 +35,34 @@ const insert = function(intervals, new_interval) {
     let merged = [];
     // TODO: Write your code here
     let i = 0;
+    let start = intervals[i].start,
+        end = intervals[i].end;
+    while (i < intervals.length && new_interval.start > end) {
+        merged.push(new Interval(start, end))
+        i++
+        start = intervals[i].start;
+        end = intervals[i].end;
+    }
+
+    while (i < intervals.length && new_interval.end > intervals[i].start) {
+        start = intervals[i].start;
+        end = intervals[i].end
+        start = Math.min(start, new_interval.start);
+        end = Math.max(end, new_interval.end);
+        i++
+    }
+    merged.push(new Interval(start, end))
+
     while (i < intervals.length) {
-        if (intervals[i].start > new_interval.start) {
-            intervals.splice(i, 0, new_interval);
-            break;
-        }
-        i++;
+        start = intervals[i].start;
+        end = intervals[i].end;
+        merged.push(new Interval(start, end))
+        i++
     }
-    let start = intervals[0].start,
-        end = intervals[0].end;
-    for (let i = 1; i < intervals.length; i++) {
-        if (intervals[i].start < end) {
-            end = Math.max(end, intervals[i].end);
-        } else {
-            merged.push(new Interval(start, end));
-            start = intervals[i].start;
-            end = intervals[i].end;
-        }
-    }
-    merged.push(new Interval(start, end));
     return merged;
 };
 
-console.log('Intervals after inserting the new interval: ');
+process.stdout.write('Intervals after inserting the new interval: ');
 let result = insert([
     new Interval(1, 3),
     new Interval(5, 7),
@@ -68,7 +73,7 @@ for (i = 0; i < result.length; i++) {
 }
 console.log();
 
-console.log('Intervals after inserting the new interval: ');
+process.stdout.write('Intervals after inserting the new interval: ');
 result = insert([
     new Interval(1, 3),
     new Interval(5, 7),
@@ -79,7 +84,7 @@ for (i = 0; i < result.length; i++) {
 }
 console.log();
 
-console.log('Intervals after inserting the new interval: ');
+process.stdout.write('Intervals after inserting the new interval: ');
 result = insert([new Interval(2, 3),
     new Interval(5, 7),
 ], new Interval(1, 4));
