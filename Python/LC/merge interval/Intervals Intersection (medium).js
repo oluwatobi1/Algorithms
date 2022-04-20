@@ -12,7 +12,6 @@
 // Input: arr1=[[1, 3], [5, 7], [9, 12]], arr2=[[5, 10]]
 // Output: [5, 7], [9, 10]
 // Explanation: The output list contains the common intervals between the two lists.
-
 class Interval {
     constructor(start, end) {
         this.start = start;
@@ -25,23 +24,26 @@ class Interval {
 }
 
 const merge = function(intervals_a, intervals_b) {
-    let result = [];
+    let result = [],
+        i = 0,
+        j = 0;
     // TODO: Write your code here
-    let a = 0,
-        b = 0;
-    while (a < intervals_a.length && intervals_b[b].start > intervals_a[a].end) {
-        ++a;
-    }
-    while (a < intervals_a.length && b < intervals_b.length) {
-        if (a < intervals_a.length && intervals_b[b].end >= intervals_a[a].start) {
-            let start = Math.max(intervals_a[a].start, intervals_b[b].start)
-            let end = Math.min(intervals_a[a].end, intervals_b[b].end);
-            result.push(new Interval(start, end));
-            ++a;
+    while (i < intervals_a.length && j < intervals_b.length) {
+        let a_overlaps_b = intervals_a[i].start >= intervals_b[j].start && intervals_a[i].start <= intervals_b[j].end;
+        let b_overlaps_a = intervals_b[j].start >= intervals_a[i].start && intervals_b[j].start <= intervals_a[i].end;
+
+        if (a_overlaps_b || b_overlaps_a) {
+            let start = Math.max(intervals_a[i].start, intervals_b[j].start);
+            let end = Math.min(intervals_a[i].end, intervals_b[j].end);
+            result.push(new Interval(start, end))
+        }
+        if (intervals_a[i].end < intervals_b[j].end) {
+            ++i;
         } else {
-            ++b;
+            ++j;
         }
     }
+
     return result;
 };
 
