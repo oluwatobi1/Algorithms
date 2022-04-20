@@ -19,7 +19,6 @@
 // Output: [[1,4], [5,7]]
 // Explanation: After insertion, since [1,4] overlaps with [2,3], we merged them into one [1,4].
 
-
 class Interval {
     constructor(start, end) {
         this.start = start;
@@ -35,28 +34,19 @@ const insert = function(intervals, new_interval) {
     let merged = [];
     // TODO: Write your code here
     let i = 0;
-    let start = intervals[i].start,
-        end = intervals[i].end;
-    while (i < intervals.length && new_interval.start > end) {
-        merged.push(new Interval(start, end))
+    while (i < intervals.length && new_interval.start > intervals[i].end) {
+        merged.push(intervals[i])
         i++
-        start = intervals[i].start;
-        end = intervals[i].end;
     }
-
     while (i < intervals.length && new_interval.end > intervals[i].start) {
-        start = intervals[i].start;
-        end = intervals[i].end
-        start = Math.min(start, new_interval.start);
-        end = Math.max(end, new_interval.end);
+        new_interval.start = Math.min(intervals[i].start, new_interval.start);
+        new_interval.end = Math.max(intervals[i].end, new_interval.end);
         i++
     }
-    merged.push(new Interval(start, end))
+    merged.push(new_interval)
 
     while (i < intervals.length) {
-        start = intervals[i].start;
-        end = intervals[i].end;
-        merged.push(new Interval(start, end))
+        merged.push(intervals[i])
         i++
     }
     return merged;
