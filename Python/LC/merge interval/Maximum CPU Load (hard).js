@@ -20,7 +20,7 @@
 // Jobs: [[1,4,2], [2,4,1], [3,6,5]]
 // Output: 8
 // Explanation: Maximum CPU load will be 8 as all jobs overlap during the time interval [3,4].
-
+const Heap = require("./collections/heap");
 class Job {
     constructor(start, end, cpu_load) {
         this.start = start;
@@ -31,32 +31,25 @@ class Job {
 
 const find_max_cpu_load = function(jobs) {
     // TODO: Write your code here
-    jobs.sort((a, b) => a.start - b.start);
-    if (jobs.length < 1) return
-    if (jobs.length === 1) return jobs[0].cpu_load;
-    let prev = jobs[0],
-        i = 1,
-        maxLoad = prev.cpu_load;
-    while (i < jobs.length) {
-        if (jobs[i].start < prev.end) {
-            maxLoad = maxLoad + jobs[i].cpu_load;
-            let start = Math.max(prev.start, jobs[i].start);
-            let end = Math.min(prev.end, jobs[i].end);
-            prev = new Job(start, end, maxLoad);
-        } else {
-            prev = jobs[i]
-            maxLoad = Math.max(maxLoad, prev.cpu_load);
-        };
-        i++
+    let maxLoad = 0,
+        result = 0,
+        minHeap = new Heap([], null, (a, b) => b.end - a.end);
+    jobs.sort((a, b) => a.start - b.start)
+    for (let i = 0; i < jobs.length; i++) {
+        while (minHeap.length > 0 && jobs[i].start > minHeap.peek().end) {
+            maxLoad -= minHeap.pop().cpu_load
+        }
+        minHeap.push(jobs[i])
+        maxLoad += jobs[i].cpu_load
+        result = Math.max(maxLoad, result)
     }
-
-    return maxLoad;
+    return result;
 };
 
 
 console.log(`Maximum CPU load at any time: ${find_max_cpu_load(
-        [new Job(1, 4, 3), new Job(2, 5, 4), new Job(7, 9, 6)])}`)
+      [new Job(1, 4, 3), new Job(2, 5, 4), new Job(7, 9, 6)])}`)
 console.log(`Maximum CPU load at any time: ${find_max_cpu_load(
-        [new Job(6, 7, 10), new Job(2, 4, 11), new Job(8, 12, 15)])}`)
+      [new Job(6, 7, 10), new Job(2, 4, 11), new Job(8, 12, 15)])}`)
 console.log(`"Maximum CPU load at any time: ${find_max_cpu_load(
-        [new Job(1, 4, 2), new Job(2, 4, 1), new Job(3, 6, 5)])}`)
+      [new Job(1, 4, 2), new Job(2, 4, 1), new Job(3, 6, 5)])}`)
