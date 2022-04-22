@@ -18,7 +18,8 @@
 // Input: Employee Working Hours=[[[1,3]], [[2,4]], [[3,5], [7,9]]]
 // Output: [5,7]
 // Explanation: All employees are free between [5,7].
-const Heap = require('./collections/heap');
+
+const Heap = require('./collections/heap')
 class Interval {
     constructor(start, end) {
         this.start = start;
@@ -38,31 +39,30 @@ class EmployeeInterval {
     };
 };
 
-
 const find_employee_free_time = function(schedule) {
-    let result = [];
+    result = [];
     // TODO: Write your code here
-    let n = schedule.length;
-    if (schedule === null || n === 0) return result
-    let minHeap = new Heap([], null, (a, b) => b.interval.start - a.interval.start)
+    let n = schedule.length,
+        minHeap = new Heap([], null, (a, b) => b.interval.start - a.interval.start);
+    if (schedule === null || n === 0) return result;
     for (let i = 0; i < n; i++) {
         minHeap.push(new EmployeeInterval(schedule[i][0], i, 0))
-    }
-    let prevInterval = minHeap.peek()
+    };
+    const prevInterval = minHeap.peek()
     while (minHeap.length > 0) {
-        const queueTop = minHeap.pop();
+        const queueTop = minHeap.pop()
         if (prevInterval.interval.end < queueTop.interval.start) {
-            result.push(new Interval(prevInterval.interval.end, queueTop.interval.start));
+            result.push(new Interval(prevInterval.interval.end, queueTop.interval.start))
             prevInterval.interval = queueTop.interval
         } else {
             if (prevInterval.interval.end < queueTop.interval.end) {
-                prevInterval.interval = queueTop.interval
+                prevInterval.interval = queueTop.interval;
             }
         }
-        const employeeSchedule = schedule[queueTop.employeeIndex]
+        const employeeSchedule = schedule[queueTop.employeeIndex];
         if (employeeSchedule.length > queueTop.intervalIndex + 1) {
-            minHeap.push(new EmployeeInterval(employeeSchedule[queueTop.intervalIndex + 1],
-                queueTop.employeeIndex, queueTop.intervalIndex + 1))
+            minHeap.push(new EmployeeInterval(employeeSchedule[queueTop.intervalIndex + 1], queueTop.employeeIndex,
+                queueTop.intervalIndex + 1))
         }
     }
     return result;
