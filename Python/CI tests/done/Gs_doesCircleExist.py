@@ -35,8 +35,3 @@ def doesCircleExist(commands):
 
     
 
-if __name__ == '__main__':
-
-
-
-    
