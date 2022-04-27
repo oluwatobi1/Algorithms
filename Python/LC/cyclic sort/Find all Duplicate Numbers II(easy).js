@@ -9,3 +9,24 @@
 
 // Input: [5, 4, 7, 2, 3, 5, 3]
 // Output: [3, 5]
+
+const find_all_duplicates = function(nums) {
+    duplicateNumbers = [];
+    // TODO: Write your code here
+    let i = 0;
+    while (i < nums.length) {
+        if (nums[i] !== i + 1) {
+            let supposedIndex = nums[i] - 1;
+            if (nums[i] !== nums[supposedIndex]) {
+                [nums[i], nums[supposedIndex]] = [nums[supposedIndex], nums[i]]
+            } else {
+                duplicateNumbers.push(nums[i])
+                i++;
+            }
+
+        } else {
+            i++
+        }
+    }
+    return duplicateNumbers;
+};
