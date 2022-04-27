@@ -13,3 +13,23 @@
 // Input: [3, 1, 2, 3, 6, 4]
 // Output: [3, 5]
 // Explanation: '3' is duplicated and '5' is missing.
+
+const find_corrupt_numbers = function(nums) {
+    // TODO: Write your code here
+    let i = 0;
+    while (i < nums.length) {
+        let supposedIndex = nums[i] - 1;
+        if (nums[i] !== nums[supposedIndex]) {
+            [nums[i], nums[supposedIndex]] = [nums[supposedIndex], nums[i]]
+        } else {
+            i++;
+        }
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== i + 1) {
+            return [nums[i], i + 1]
+        }
+    }
+    return [-1, -1];
+};
