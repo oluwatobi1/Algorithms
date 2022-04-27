@@ -8,24 +8,24 @@
 #
 #
 
-def condense(head):
-    # Write your code here
-    store = set()
-    out = []
-    # out = SinglyLinkedListNode(None)
+# def condense(head):
+#     # Write your code here
+#     store = set()
+#     out = []
+#     # out = SinglyLinkedListNode(None)
     
-    while head!=None:        
-        if head.data not in store:
-            out.append(head.data)
-        store.add(head.data)
-        head = head.next    
-    out_linked = None
+#     while head!=None:        
+#         if head.data not in store:
+#             out.append(head.data)
+#         store.add(head.data)
+#         head = head.next    
+#     out_linked = None
     
-    for i in out[::-1]:
-        temp = SinglyLinkedListNode(i)
-        temp.next= out_linked
-        out_linked=temp
-    return out_linked
+#     for i in out[::-1]:
+#         # temp = SinglyLinkedListNode(i)
+#         temp.next= out_linked
+#         out_linked=temp
+#     return out_linked
 
 
 

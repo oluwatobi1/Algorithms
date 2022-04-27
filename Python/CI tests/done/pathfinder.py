@@ -1,4 +1,5 @@
-
+class heapq():
+    pass
 def pathfinder(maze, start, destination):      
     start, destination = tuple(start), tuple(destination)
     row,col = len(maze),len(maze[0])
