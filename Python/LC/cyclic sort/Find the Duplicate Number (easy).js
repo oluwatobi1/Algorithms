@@ -16,3 +16,31 @@
 
 // Input: [2, 4, 1, 4, 4]
 // Output: 4
+
+const find_duplicate = function(nums) {
+    // TODO: Write your code here
+    let i = 0;
+    while (i < nums.length) {
+        if (nums[i] !== i + 1) {
+
+            let supposedIndex = nums[i] - 1;
+            if (nums[i] !== nums[supposedIndex]) {
+                [nums[i], nums[supposedIndex]] = [nums[supposedIndex], nums[i]]
+            } else {
+                return nums[i]
+            }
+        } else {
+            i++;
+        }
+    }
+    console.log(nums)
+
+
+    return -1;
+};
+
+
+console.log("duplicate", find_duplicate([1, 4, 4, 3, 2]));
+console.log("duplicate", find_duplicate([2, 1, 3, 3, 5, 4]));
+console.log("duplicate", find_duplicate([2, 4, 1, 4, 4]));
+console.log("duplicate", find_duplicate([5, 2, 1, 4, 4]));
