@@ -1,8 +1,3 @@
-// Given a binary tree, populate an array to represent its 
-// level-by-level traversal in reverse order, i.e., the lowest level comes first. 
-// You should populate the values of all nodes in each level from 
-// left to right in separate sub-arrays.
-
 class TreeNode {
 
     constructor(value) {
@@ -29,15 +24,7 @@ const traverse = function(root) {
                 queue.push(currNode.right)
             }
         }
-        result.push(temp)
-
-    }
-    let pointer1 = 0,
-        pointer2 = result.length - 1;
-    while (pointer1 < pointer2) {
-        [result[pointer1], result[pointer2]] = [result[pointer2], result[pointer1]];
-        pointer1 += 1
-        pointer2 -= 1
+        result.unshift(temp)
     }
     return result;
 }
