@@ -14,6 +14,14 @@
 # named decrypt(word) that receives a string that consists of small latin letters only, 
 # and returns the decrypted word.
 
+# Examples:
+
+# input:  word = "dnotq"
+# output: "crime"
+
+# input:  word = "flgxswdliefy"
+# output: "encyclopedia"
+
 
 def decrypt(word):
   # 97-122
