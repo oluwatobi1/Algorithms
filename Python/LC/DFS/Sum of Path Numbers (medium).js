@@ -1,8 +1,3 @@
-// Given a binary tree where each node can only have a digit (0-9) value, 
-// each root-to-leaf path will represent a number. Find the total sum of all
-//  the numbers represented by all paths.
-
-
 class TreeNode {
 
     constructor(value) {
@@ -14,27 +9,19 @@ class TreeNode {
 
 
 const find_sum_of_path_numbers = function(root) {
-    // TODO: Write your code here
-    let sum = [0];
-    find_dfs(root, sum)
-    return sum[0];
+    return dfs_path(root)
 };
 
-const find_dfs = function(root, sum, currentSum = 0) {;
-    if (root == null) {
-        return;
+const dfs_path = function(root, currSum = 0) {
+    if (root === null) {
+        return 0
     }
-    currentSum = (currentSum * 10) + root.value;
 
-    if (root.left === null && root.right === null) {
-        sum[0] += currentSum
-    } else {
-        find_dfs(root.left, sum, currentSum)
-        find_dfs(root.right, sum, currentSum)
+    currSum = (currSum * 10) + root.value
+    if (root.left == null && root.right == null) {
+        return currSum
     }
-    currentSum = (currentSum - root.value) / 10
-
-
+    return dfs_path(root.left, currSum) + dfs_path(root.right, currSum)
 }
 
 
